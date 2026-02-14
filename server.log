@@ -1,0 +1,6 @@
+
+> learnhttpservers@1.0.0 dev
+> npx tsc && node dist/index.js
+
+src/db/queries/users.ts(6,13): error TS2345: Argument of type '{ email: string; id?: string | undefined; createdAt?: Date | undefined; updatedAt?: Date | undefined; }' is not assignable to parameter of type 'PgTable<TableConfig>'.
+  Type '{ email: string; id?: string | undefined; createdAt?: Date | undefined; updatedAt?: Date | undefined; }' is missing the following properties from type 'PgTable<TableConfig>': _, $inferSelect, $inferInsert, getSQL
