@@ -1,5 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
 process.loadEnvFile();
 function envOrThrow(key) {
     const value = process.env[key];
@@ -9,18 +7,23 @@ function envOrThrow(key) {
     return value;
 }
 const migrationConfig = {
-    migrationsFolder: "./src/db",
+    migrationsFolder: "./src/db/migrations",
 };
 export const config = {
     api: {
         fileServerHits: 0,
         port: Number(envOrThrow("PORT")),
+        platform: envOrThrow("PLATFORM"),
+        polkaApiKey: envOrThrow("POLKA_KEY"),
     },
     db: {
         url: envOrThrow("DB_URL"),
         migrationConfig: migrationConfig,
     },
-};
-export const platCheck = {
-    platform: String(envOrThrow("PLATFORM")),
+    jwt: {
+        defaultDuration: 60 * 60, // 1 hour in seconds
+        refreshDuration: 60 * 60 * 24 * 60 * 1000, // 60 days in milliseconds
+        secret: envOrThrow("JWT_SECRET"),
+        issuer: "chirpy",
+    },
 };

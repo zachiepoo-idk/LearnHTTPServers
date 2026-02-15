@@ -1,0 +1,1 @@
+This is a guided project, namely from the "Learn HTTP Servers" course (Typescript) on boot.dev. It matches their final solutions, and is kept as reference for future work. Will update full API information at a later time;
